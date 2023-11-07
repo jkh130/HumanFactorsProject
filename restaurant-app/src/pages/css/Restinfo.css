@@ -1,0 +1,17 @@
+.page2 {
+    font-family: sans-serif;
+    padding-top: 260px;
+  }
+
+
+
+.title{
+    font-size: 70px;
+    text-align: center;
+}
+
+.availability{
+    font-size: 60px;
+    text-align: center;
+    color: rgb(143, 143, 143);
+}

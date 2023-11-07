@@ -1,0 +1,79 @@
+.page {
+    font-family: sans-serif;
+  
+    padding-top: 100px;
+  }
+.sort{
+  text-align: center;
+}
+.title {
+    text-align: center;
+    -webkit-user-select: none;
+    font-size: 60px;
+    transform-origin: center;
+    margin-bottom: 10px;
+}
+
+  .restaurant-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto; /* Center the list on the page */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns items horizontally in the center */
+    
+}
+
+.restaurant-btn:hover{
+    background-color: #D3D3D3;
+    
+}
+.restaurant-btn {
+    -webkit-user-select: none;
+    font-family: sans-serif;
+    padding: 15px 30px; /* More padding inside the button */
+    font-size: 30px; /* Larger text size */
+    width: auto; /* Adjust width as needed, or use 'auto' for natural width */
+    height: auto; /* Adjust height as needed, or use 'auto' for natural height */
+    border: none;
+    border-radius: 5px; /* Optional: if you want rounded corners */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.sort-btn {
+    background-color: #E0E0E0; /* Light grey background */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded corners */
+    color: black; /* Text color */
+    padding: 10px 20px; /* Top and bottom padding 10px, left and right padding 20px */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* No underline on text */
+    display: inline-block; /* Allows to set a width and height */
+    font-size: 30px; /* Text size */
+    margin: 4px 10px; /* Margin around the buttons */
+    transition-duration: 0.4s; /* Makes the hover effect smooth */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26); /* Shadow effect */
+}
+  
+  /* Add a darker grey background color to the button when it's clicked (active) */
+  .sort-btn:active {
+    background-color: #D5D5D5;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.26); /* Slightly different shadow for a "pressed" effect */
+  }
+  
+  /* This will change the background and text color slightly when hovering over the button */
+  .sort-btn:hover {
+    background-color: #D5D5D5; /* A shade darker than the default */
+    color: black;
+  }
+  
+  /* This is to simulate the button that is currently selected or active */
+  .sort-btn.selected {
+    background-color: #A8A8A8; /* An even darker shade to indicate selection */
+    color: white; /* White text for better contrast */
+  }
