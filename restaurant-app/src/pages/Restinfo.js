@@ -4,6 +4,7 @@ import './css/Restinfo.css';
 
 function Restaurantinfo() {
     const [busynessLevel, setBusynessLevel] = useState('');
+    const [buttonClicked, setButtonClicked] = useState(false);
     const { restaurantName } = useParams();
     let navigate = useNavigate();
 
@@ -13,6 +14,21 @@ function Restaurantinfo() {
         if (score <= 2.5) return 'available';
         if (score <= 3.75) return 'small wait time';
         return 'busy currently'; // Assuming the score will not exceed 5
+    };
+
+    // Button Click useEffect()
+    useEffect(() => {
+        if (buttonClicked) {
+            // Placeholder for future implementation when button is clicked
+            console.log('Button clicked! Implement action here.');
+            // Reset button click state if needed
+            setButtonClicked(false);
+        }
+    }, [buttonClicked]); // Dependency array to watch buttonClicked state
+
+    // Function to handle button click
+    const handleButtonClick = () => {
+        setButtonClicked(true);
     };
 
     useEffect(() => {
@@ -53,6 +69,17 @@ function Restaurantinfo() {
             {busynessLevel && (
                 <p className="availability">{busynessLevel}</p>
             )}
+            {/* Blue button */}
+            <div className="button-container"> 
+                <button
+                    className="button" 
+                    onClick={handleButtonClick}
+                >
+                    Here currently? Click me!
+                </button>
+            </div>
+
+
         </div>
         </div>
         

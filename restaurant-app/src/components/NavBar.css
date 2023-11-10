@@ -1,0 +1,38 @@
+/* NavBar.css */
+nav {
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .logo-container {
+    display: inline-block; 
+    text-decoration: none; 
+
+  }
+  
+  .logo-container img {
+    max-height: 50px; 
+  
+  }
+
+  .locations {
+    padding:20px;
+  }

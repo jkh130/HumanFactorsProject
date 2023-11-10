@@ -1,17 +1,39 @@
 .page2 {
     font-family: sans-serif;
     padding-top: 260px;
-  }
+}
 
-
-
-.title{
+.title {
     font-size: 70px;
     text-align: center;
 }
 
-.availability{
+.availability {
     font-size: 60px;
     text-align: center;
     color: rgb(143, 143, 143);
 }
+
+.button-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.button {
+    font-family: sans-serif;
+    background-color: rgb(60, 176, 95);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Add box-shadow to transition */
+}
+
+.button:hover {
+    box-shadow: 0 0 30px rgba(108, 255, 167, 0.6); /* Glowing effect */
+}
+
+
