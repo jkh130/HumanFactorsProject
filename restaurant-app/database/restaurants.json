@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "popularity": 0.8,
+    "name": "Whataburger",
+    "type": "drive_thru",
+    "popularity_multiplier": 0
+  },
+  {
+    "id": 2,
+    "popularity": 0.9,
+    "name": "McDonalds",
+    "type": "drive_thru",
+    "popularity_multiplier": 0
+  },
+  {
+    "id": 3,
+    "popularity": 0.9,
+    "name": "Chipotle",
+    "type": "in_person",
+    "popularity_multiplier": 0
+  },
+  {
+    "id": 4,
+    "popularity": 0.7,
+    "name": "Taco Bell",
+    "type": "hybrid",
+    "popularity_multiplier": 0
+  },
+  {
+    "id": 5,
+    "popularity": 0.5,
+    "name": "Jack in the Box",
+    "type": "hybrid",
+    "popularity_multiplier": 0
+  }
+]

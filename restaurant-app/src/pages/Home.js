@@ -10,11 +10,12 @@ function Home() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let response = await fetch('/restaurants.json');
+                let response = await fetch('/api/restaurants'); // Updated endpoint
                 let data = await response.json();
+                console.log(data);
                 setRestaurants(data);
-
-                response = await fetch('/models.json');
+    
+                response = await fetch('/api/models'); // Updated endpoint
                 data = await response.json();
                 setModels(data);
             } catch (error) {
@@ -26,8 +27,9 @@ function Home() {
     }, []);
 
     const sortByName = () => {
-        const sortedRestaurants = [...restaurants].sort((a, b) => a.name.localeCompare(b.name));
-        setRestaurants(sortedRestaurants);
+        setRestaurants(currentRestaurants => {
+            return [...currentRestaurants].sort((a, b) => a.name.localeCompare(b.name));
+        });
     };
 
     const sortByModel = () => {
