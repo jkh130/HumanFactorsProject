@@ -3,86 +3,90 @@ import { useParams, useNavigate } from 'react-router-dom';
 import './css/Restinfo.css';
 
 function Restaurantinfo() {
-    const [busynessLevel, setBusynessLevel] = useState('');
-    const [buttonClicked, setButtonClicked] = useState(false);
+    const [restaurant, setRestaurant] = useState(null);
+    const [statusMessage, setStatusMessage] = useState('');
     const { restaurantName } = useParams();
     let navigate = useNavigate();
 
-    // Function to determine the level of busyness
-    const getBusynessLevel = (score) => {
-        if (score <= 1.25) return 'walk right in!';
-        if (score <= 2.5) return 'available';
-        if (score <= 3.75) return 'small wait time';
-        return 'busy currently'; // Assuming the score will not exceed 5
+    const calculateStandardDeviation = (values, mean) => {
+        const squareDiffs = values.map(value => {
+            const diff = value - mean;
+            return diff * diff;
+        });
+        const avgSquareDiff = squareDiffs.reduce((sum, diff) => sum + diff, 0) / values.length;
+        return Math.sqrt(avgSquareDiff);
     };
 
-    // Button Click useEffect()
-    useEffect(() => {
-        if (buttonClicked) {
-            // Placeholder for future implementation when button is clicked
-            console.log('Button clicked! Implement action here.');
-            // Reset button click state if needed
-            setButtonClicked(false);
-        }
-    }, [buttonClicked]); // Dependency array to watch buttonClicked state
-
-    // Function to handle button click
-    const handleButtonClick = () => {
-        setButtonClicked(true);
+    const determineStatus = (currentValue, mean, stdDev) => {
+        if (currentValue >= mean + 2 * stdDev) return 'Super busy';
+        if (currentValue >= mean + stdDev) return 'Busier than usual';
+        if (currentValue <= mean - 2 * stdDev) return 'Walk right in!';
+        if (currentValue <= mean - stdDev) return 'Not very busy';
+        return 'Average busyness';
     };
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/restaurants.json');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                let response = await fetch('/restaurants.json');
+                if (!response.ok) throw new Error('Network response was not ok');
                 const restaurants = await response.json();
-                // Find the restaurant by name
-                const restaurant = restaurants.find(
+                const foundRestaurant = restaurants.find(
                     (r) => decodeURIComponent(restaurantName).toLowerCase() === r.name.toLowerCase()
                 );
-
-                if (restaurant) {
-                    // Get the current time rounded to the nearest hour
-                    const currentHour = new Date().getHours() + 1; // JavaScript hours are 0-indexed (0-23)
-                    // Get the busyness score for the current hour
-                    const score = restaurant.busyness[currentHour.toString()];
-                    // Determine the level of busyness
-                    const level = getBusynessLevel(score);
-                    setBusynessLevel(level);
+        
+                if (foundRestaurant) {
+                    setRestaurant(foundRestaurant);
+        
+                    response = await fetch('/models.json');
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    const models = await response.json();
+                    const currentHour = new Date().getHours();
+                    const modelType = foundRestaurant.type + "_model"; 
+                    const modelInfo = models.find((m) => m.hasOwnProperty(modelType));
+                    
+                    if (modelInfo) {
+                        const modelData = modelInfo[modelType];
+                        const mean = modelInfo['day_mean'];
+                        const stdDev = calculateStandardDeviation(modelData, mean);
+                        const currentValue = modelData[currentHour];
+                        const status = determineStatus(currentValue, mean, stdDev);
+                        setStatusMessage(status);
+                    }
                 }
             } catch (error) {
-                console.error('Error fetching restaurants:', error);
-                navigate('/error'); // navigate to an error page or home if there's an error
+                console.error('Error:', error);
+                navigate('/error');
             }
         };
 
         fetchData();
     }, [restaurantName, navigate]);
 
+    const handleButtonClick = () => {
+        // Implementation for button click
+    };
+
     return (
         <div className="page2">
             <div className="restaurant-info">
-            <h2 className="title">{decodeURIComponent(restaurantName)}</h2>
-            {busynessLevel && (
-                <p className="availability">{busynessLevel}</p>
-            )}
-            {/* Blue button */}
-            <div className="button-container"> 
-                <button
-                    className="button" 
-                    onClick={handleButtonClick}
-                >
-                    Here currently? Click me!
-                </button>
+                <h2 className="title">{restaurant ? restaurant.name : 'Loading...'}</h2>
+                {statusMessage && (
+                    <div className="availability">
+                        <p>{statusMessage}</p>
+                    </div>
+                )}
+                <div className="button-container">
+                    <button
+                        className="button"
+                        onClick={handleButtonClick}
+                        disabled={!restaurant}
+                    >
+                        Here currently? Click me!
+                    </button>
+                </div>
             </div>
-
-
         </div>
-        </div>
-        
     );
 }
 

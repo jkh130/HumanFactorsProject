@@ -4,60 +4,45 @@ import './css/Home.css';
 
 function Home() {
     const [restaurants, setRestaurants] = useState([]);
+    const [models, setModels] = useState([]);
     let navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/restaurants.json');
-                const data = await response.json();
+                let response = await fetch('/restaurants.json');
+                let data = await response.json();
+                setRestaurants(data);
 
-                // Get the current time rounded to the nearest hour
-                const currentHour = new Date().getHours() + 1;
-
-                // Add a busynessLevel property to each restaurant based on the current hour
-                const updatedData = data.map(restaurant => {
-                    const busynessScore = restaurant.busyness[currentHour.toString()];
-                    const busynessLevel = getBusynessLevel(busynessScore);
-                    return {
-                        ...restaurant,
-                        busynessLevel
-                    };
-                });
-
-                setRestaurants(updatedData);
+                response = await fetch('/models.json');
+                data = await response.json();
+                setModels(data);
             } catch (error) {
-                console.error('Error fetching restaurants:', error);
+                console.error('Error fetching data:', error);
             }
         };
-
+    
         fetchData();
     }, []);
 
-    // Convert busyness score to level
-    const getBusynessLevel = (score) => {
-        if (score <= 1.25) return 1;
-        if (score <= 2.5) return 2;
-        if (score <= 3.75) return 3;
-        return 4;
-    };
-
-    // Sort by Popularity
-    const sortByPopularity = () => {
-        const sortedRestaurants = [...restaurants].sort((a, b) => b.popularity - a.popularity);
-        setRestaurants(sortedRestaurants);
-    };
-
-    // Sort by Name (alphabetical order)
     const sortByName = () => {
         const sortedRestaurants = [...restaurants].sort((a, b) => a.name.localeCompare(b.name));
         setRestaurants(sortedRestaurants);
     };
 
-    // Sort by Current Busyness Level
-    const sortByBusyness = () => {
-        const sortedRestaurants = [...restaurants].sort((a, b) => a.busynessLevel - b.busynessLevel);
-        setRestaurants(sortedRestaurants);
+    const sortByModel = () => {
+        const currentHour = new Date().getHours(); // Getting the current hour
+        const sortedRestaurants = [...restaurants].sort((a, b) => {
+            // For each restaurant, find its corresponding model based on its type
+            const modelA = models.find(model => model.hasOwnProperty(a.type + '_model'));
+            const modelB = models.find(model => model.hasOwnProperty(b.type + '_model'));
+    
+            // Sort the restaurants in ascending order based on their current hour's model score
+            // If a model is not found for a restaurant, its score is assumed to be 0
+            return (modelA ? modelA[a.type + '_model'][currentHour] : 0) - 
+                   (modelB ? modelB[b.type + '_model'][currentHour] : 0);
+        });
+        setRestaurants(sortedRestaurants); // Updating the state with the sorted restaurants
     };
 
     const handleRestaurantClick = (restaurantName) => {
@@ -69,9 +54,8 @@ function Home() {
             <h1 className="title">Sort Restaurants by...</h1>
 
             <div className="sort">
-                <button onClick={sortByPopularity} className="sort-btn">Popularity</button>
                 <button onClick={sortByName} className="sort-btn">Alphabetical</button>
-                <button onClick={sortByBusyness} className="sort-btn">Time</button>
+                <button onClick={sortByModel} className="sort-btn">Current Model</button>
             </div>
 
             <ul className="restaurant-list">
