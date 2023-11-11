@@ -1,37 +1,57 @@
 [
-  {
-    "id": 1,
-    "popularity": 0.8,
-    "name": "Whataburger",
-    "type": "drive_thru",
-    "popularity_multiplier": 0
-  },
-  {
-    "id": 2,
-    "popularity": 0.9,
-    "name": "McDonalds",
-    "type": "drive_thru",
-    "popularity_multiplier": 0
-  },
-  {
-    "id": 3,
-    "popularity": 0.9,
-    "name": "Chipotle",
-    "type": "in_person",
-    "popularity_multiplier": 0
-  },
-  {
-    "id": 4,
-    "popularity": 0.7,
-    "name": "Taco Bell",
-    "type": "hybrid",
-    "popularity_multiplier": 0
-  },
-  {
-    "id": 5,
-    "popularity": 0.5,
-    "name": "Jack in the Box",
-    "type": "hybrid",
-    "popularity_multiplier": 0
-  }
+    {
+        "id": 1,
+        "popularity": 0.8,
+        "name": "Whataburger",
+        "type": "drive_thru",
+        "popularity_multiplier": 0,
+        "image": "https://s7d2.scene7.com/is/image/TWCNews/0710_whataburgerjpg",
+        "description": "Whataburger is an American regional fast food restaurant chain, headquartered and based in San Antonio, Texas, that specializes in hamburgers."
+    },
+    {
+        "id": 2,
+        "popularity": 0.9,
+        "name": "McDonalds",
+        "type": "drive_thru",
+        "popularity_multiplier": 0,
+        "image": "https://i.abcnewsfe.com/a/aae2e440-73a2-4252-a4c9-c7d27f0efda7/mcdonalds-gty-thg-230728_1690559943139_hpMain.jpg",
+        "description": "McDonald's Corporation is an American multinational fast food chain, founded in 1940 as a restaurant operated by Richard and Maurice McDonald, in San Bernardino, California, United States."
+    },
+    {
+        "id": 3,
+        "popularity": 0.9,
+        "name": "Chipotle",
+        "type": "in_person",
+        "popularity_multiplier": 0,
+        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_404,q_75,w_613/v1/crm/sanmarcostx/Chipotle1_B0F8BE45-5056-A36F-233B97649D3644D9-b0f8bc495056a36_b0f8be9b-5056-a36f-23faaa00ef1c1062.jpg",
+        "description": "Chipotle, is an American chain of fast casual restaurants specializing in bowls, tacos and Mission burritos made to order in front of the customer."
+    },
+    {
+        "id": 4,
+        "popularity": 0.7,
+        "name": "Taco Bell",
+        "type": "hybrid",
+        "popularity_multiplier": 0,
+        "image": "https://locations.tacobell.com/permanent-b0b701/assets/images/hero.9266f3de.jpg",
+        "description": "Taco Bell IP Holder, LLC, d/b/a Taco Bell, is an American multinational chain of fast food restaurants founded in 1962 by Glen Bell in Downey, California."
+    },
+    {
+        "id": 5,
+        "popularity": 0.5,
+        "name": "Jack in the Box",
+        "type": "hybrid",
+        "popularity_multiplier": 0,
+        "image": "https://www.abc4.com/wp-content/uploads/sites/4/2023/09/M24_003P_1_Angry_Monster_Tacos_1.png?w=2560&h=1440&crop=1",
+        "description": "Jack in the Box is an American fast-food restaurant chain founded February 21, 1951, by Robert O."
+    },
+    {
+        "id": 6,
+        "popularity": 0,
+        "name": "Saltgrass Steak House",
+        "type": "in_person",
+        "popularity_multiplier": 0,
+        "image": "https://lh3.googleusercontent.com/p/AF1QipOMhFb67m04sGjSp6CfXmbIfYbWAA-VcPNRTT6P=s1360-w1360-h1020",
+        "description": "Informal Texas-themed chain offers a meaty menu & full bar amid cattle kitsch decor."
+    }
+
 ]

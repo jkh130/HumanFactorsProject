@@ -10,41 +10,44 @@ function Home() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let response = await fetch('/api/restaurants'); // Updated endpoint
-                let data = await response.json();
-                console.log(data);
-                setRestaurants(data);
-    
-                response = await fetch('/api/models'); // Updated endpoint
-                data = await response.json();
-                setModels(data);
+                const [restaurantsRes, modelsRes] = await Promise.all([
+                    fetch('/api/restaurants'),
+                    fetch('/api/models')
+                ]);
+
+                if (!restaurantsRes.ok || !modelsRes.ok) {
+                    throw new Error('HTTP error when fetching data');
+                }
+
+                const restaurantsData = await restaurantsRes.json();
+                const modelsData = await modelsRes.json();
+                setRestaurants(restaurantsData);
+                setModels(modelsData);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
-    
+
         fetchData();
     }, []);
 
     const sortByName = () => {
-        setRestaurants(currentRestaurants => {
-            return [...currentRestaurants].sort((a, b) => a.name.localeCompare(b.name));
-        });
+        setRestaurants([...restaurants].sort((a, b) => a.name.localeCompare(b.name)));
     };
 
-    const sortByModel = () => {
-        const currentHour = new Date().getHours(); // Getting the current hour
-        const sortedRestaurants = [...restaurants].sort((a, b) => {
-            // For each restaurant, find its corresponding model based on its type
-            const modelA = models.find(model => model.hasOwnProperty(a.type + '_model'));
-            const modelB = models.find(model => model.hasOwnProperty(b.type + '_model'));
+    const sortByScore = () => {
+        if (models.length > 0) {
+            const currentHour = new Date().getHours();
+            const sortedRestaurants = [...restaurants].sort((a, b) => {
+                const modelA = models.find(model => model.hasOwnProperty(`${a.type}_model`));
+                const modelB = models.find(model => model.hasOwnProperty(`${b.type}_model`));
+                const scoreA = modelA ? modelA[`${a.type}_model`][currentHour] : 0;
+                const scoreB = modelB ? modelB[`${b.type}_model`][currentHour] : 0;
+                return scoreB - scoreA; 
+            });
     
-            // Sort the restaurants in ascending order based on their current hour's model score
-            // If a model is not found for a restaurant, its score is assumed to be 0
-            return (modelA ? modelA[a.type + '_model'][currentHour] : 0) - 
-                   (modelB ? modelB[b.type + '_model'][currentHour] : 0);
-        });
-        setRestaurants(sortedRestaurants); // Updating the state with the sorted restaurants
+            setRestaurants(sortedRestaurants);
+        }
     };
 
     const handleRestaurantClick = (restaurantName) => {
@@ -53,25 +56,22 @@ function Home() {
 
     return (
         <div className="page">
-            <h1 className="title">Sort Restaurants by...</h1>
-
-            <div className="sort">
+            <h1 className="title">Restaurants</h1>
+            <div className="sort-buttons">
                 <button onClick={sortByName} className="sort-btn">Alphabetical</button>
-                <button onClick={sortByModel} className="sort-btn">Quick</button>
+                <button onClick={sortByScore} className="sort-btn">By Score</button>
             </div>
-
-            <ul className="restaurant-list">
+            <div className="restaurant-list">
                 {restaurants.map((restaurant) => (
-                    <li key={restaurant.id}>
-                        <button
-                            className="restaurant-btn"
-                            onClick={() => handleRestaurantClick(restaurant.name)}
-                        >
-                            {restaurant.name}
-                        </button>
-                    </li>
+                    <div key={restaurant.id} className="restaurant-card" onClick={() => handleRestaurantClick(restaurant.name)}>
+                        <img src={restaurant.image} alt={restaurant.name} className="restaurant-image" />
+                        <div className="restaurant-info">
+                            <h2 className="restaurant-name">{restaurant.name}</h2>
+                            <p className="restaurant-description">{restaurant.description || 'No description available'}</p>
+                        </div>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 }

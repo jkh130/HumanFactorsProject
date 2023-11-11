@@ -28,7 +28,7 @@ function Restaurantinfo() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let response = await fetch('/restaurants.json');
+                let response = await fetch('/api/restaurants');
                 if (!response.ok) throw new Error('Network response was not ok');
                 const restaurants = await response.json();
                 const foundRestaurant = restaurants.find(
@@ -38,7 +38,7 @@ function Restaurantinfo() {
                 if (foundRestaurant) {
                     setRestaurant(foundRestaurant);
                 
-                    const response = await fetch('/models.json');
+                    const response = await fetch('/api/models');
                     // Error handling
                     const models = await response.json();
                     const currentHour = new Date().getHours();
