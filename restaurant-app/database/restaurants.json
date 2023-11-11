@@ -48,7 +48,7 @@
         "id": 6,
         "popularity": 0,
         "name": "Saltgrass Steak House",
-        "type": "in_person",
+        "type": "default",
         "popularity_multiplier": 0,
         "image": "https://lh3.googleusercontent.com/p/AF1QipOMhFb67m04sGjSp6CfXmbIfYbWAA-VcPNRTT6P=s1360-w1360-h1020",
         "description": "Informal Texas-themed chain offers a meaty menu & full bar amid cattle kitsch decor."

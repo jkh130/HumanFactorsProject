@@ -43,7 +43,7 @@ function Home() {
                 const modelB = models.find(model => model.hasOwnProperty(`${b.type}_model`));
                 const scoreA = modelA ? modelA[`${a.type}_model`][currentHour] : 0;
                 const scoreB = modelB ? modelB[`${b.type}_model`][currentHour] : 0;
-                return scoreB - scoreA; 
+                return scoreA - scoreB; // Sort in ascending order by score
             });
     
             setRestaurants(sortedRestaurants);
