@@ -55,7 +55,7 @@ function Home() {
 
             <div className="sort">
                 <button onClick={sortByName} className="sort-btn">Alphabetical</button>
-                <button onClick={sortByModel} className="sort-btn">Current Model</button>
+                <button onClick={sortByModel} className="sort-btn">Quick</button>
             </div>
 
             <ul className="restaurant-list">

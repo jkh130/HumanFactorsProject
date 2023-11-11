@@ -37,14 +37,14 @@ function Restaurantinfo() {
         
                 if (foundRestaurant) {
                     setRestaurant(foundRestaurant);
-        
-                    response = await fetch('/models.json');
-                    if (!response.ok) throw new Error('Network response was not ok');
+                
+                    const response = await fetch('/models.json');
+                    // Error handling
                     const models = await response.json();
                     const currentHour = new Date().getHours();
-                    const modelType = foundRestaurant.type + "_model"; 
+                    const modelType = foundRestaurant.type + "_model";  // This becomes "hybrid_model"
                     const modelInfo = models.find((m) => m.hasOwnProperty(modelType));
-                    
+                
                     if (modelInfo) {
                         const modelData = modelInfo[modelType];
                         const mean = modelInfo['day_mean'];

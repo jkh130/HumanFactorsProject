@@ -22,8 +22,15 @@
   },
   {
     "id": 4,
-    "popularity": 0.5,
+    "popularity": 0.7,
     "name": "Taco Bell",
+    "type": "hybrid",
+    "popularity_multiplier": 0
+  },
+  {
+    "id": 5,
+    "popularity": 0.5,
+    "name": "Jack in the Box",
     "type": "hybrid",
     "popularity_multiplier": 0
   }
