@@ -1,0 +1,57 @@
+/* Restaurants.css */
+
+.restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center; /* Center the cards */
+    margin: 0 auto; /* Centers the list if needed */
+    max-width: 1100px; /* Maximum width of the list */
+  }
+  
+  .restaurant-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 8px; /* Adjust margin for aesthetics */
+    box-sizing: border-box;
+    flex: 0 0 calc(33.333% - 32px); /* Adjusted to account for gap and margin */
+    max-width: calc(33.333% - 32px); /* Adjusted to account for gap and margin */
+    animation: fadeIn 0.2s ease-in-out forwards; /* Apply the fade-in animation */
+  }
+  
+  .restaurant-image {
+    width: 100%;
+    height: auto; /* Adjust height to be auto to maintain aspect ratio */
+    object-fit: cover;
+  }
+  
+  .restaurant-info {
+    padding: 16px;
+  }
+  
+  .restaurant-name {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+  }
+  
+  .restaurant-description {
+    font-size: 1rem;
+  }
+  
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    .restaurant-card {
+      flex: 0 0 calc(100% - 32px); /* Adjusted to account for margin */
+      max-width: calc(100% - 32px); /* Adjusted to account for margin */
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* If you have any additional styles, they can be added below */
+  

@@ -52,6 +52,32 @@
         "popularity_multiplier": 0,
         "image": "https://lh3.googleusercontent.com/p/AF1QipOMhFb67m04sGjSp6CfXmbIfYbWAA-VcPNRTT6P=s1360-w1360-h1020",
         "description": "Informal Texas-themed chain offers a meaty menu & full bar amid cattle kitsch decor."
+    },
+    {
+        "id": 7,
+        "popularity": 0,
+        "name": "Grins Restaurant",
+        "type": "in_person",
+        "popularity_multiplier": 0,
+        "image": "https://lh3.googleusercontent.com/p/AF1QipMRFlzzVrkog0Yw6BPvJGbf2pFl2F2QVPnHd_Dk=s1360-w1360-h1020",
+        "description": "Laid-back venue with a tree-shaded deck serving drinks & American eats to a mostly college crowd."
+    },
+    {
+        "id": 8,
+        "popularity": 0,
+        "name": "Chuy's",
+        "type": "in_person",
+        "popularity_multiplier": 0,
+        "image": "https://lh3.googleusercontent.com/p/AF1QipOqKEHNF9Bn5-yCs1umZojHSiZ3WNq8bEE2JxDm=s1360-w1360-h1020",
+        "description": "Chain serving \"big as yo' face\" burritos & other Tex-Mex dishes in kitschy, Elvis-heavy settings."
+    },
+    {
+        "id": 9,
+        "popularity": 0,
+        "name": "Hawaii Poke",
+        "type": "in_person",
+        "popularity_multiplier": 0,
+        "image": "https://lh3.googleusercontent.com/p/AF1QipN_yU-IRDy4Ia0QIV_2YGcffM6R6v4mipVSAw--=s1360-w1360-h1020",
+        "description": "Seafood"
     }
-
 ]

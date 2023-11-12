@@ -1,64 +1,9 @@
-.restaurant-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  padding: 0; /* Adjusted to remove padding */
-  list-style: none;
-  margin: 0 auto; /* Centers the list */
-  max-width: 1100px; /* Maximum width of the list */
-}
 body {
   overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
-.restaurant-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 16px; /* Adds margin to the card */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  width: calc(100% - 32px); /* Adjusts the width to account for the margin */
-}
-
-.restaurant-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.restaurant-info {
-  padding: 16px;
-}
-
-.restaurant-name {
-  margin: 0 0 10px 0;
-  font-size: 1.5rem;
-}
-
-.restaurant-description {
-  font-size: 1rem;
-}
-
-/* Media query for tablets and desktops */
-@media (min-width: 768px) {
-  .restaurant-list {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-  }
-  .restaurant-card {
-      margin: 16px; /* Keeps margin consistent or adjust as needed */
-      width: calc(30% - 32px); /* Adjust width for 2 cards per row, accounting for margin */
-  }
-}
-
-/* Additional media query for larger desktops, if needed */
-@media (min-width: 1200px) {
-  .restaurant-card {
-      /* Adjustments for larger desktops */
-  }
-}
+/* Assuming that .restaurant-list and related styles are being handled in Restaurants.css,
+   they have been removed from Home.css to avoid conflicts. */
 
 .sort-buttons {
   transform: scale(1.2);
