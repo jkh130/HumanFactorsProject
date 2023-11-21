@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "popularity": 0.8,
+        "popularity": 0,
         "name": "Whataburger",
         "type": "drive_thru",
         "popularity_multiplier": 0,
