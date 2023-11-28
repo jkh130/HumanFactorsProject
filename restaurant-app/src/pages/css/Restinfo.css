@@ -1,11 +1,5 @@
 .page2 {
     font-family: sans-serif;
-    padding-top: 260px;
-}
-
-.title {
-    font-size: 70px;
-    text-align: center;
 }
 
 .availability {
@@ -15,9 +9,9 @@
 }
 
 .button-container {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button {
@@ -29,11 +23,11 @@
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s; /* Add box-shadow to transition */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    /* Add box-shadow to transition */
 }
 
 .button:hover {
-    box-shadow: 0 0 30px rgba(108, 255, 167, 0.6); /* Glowing effect */
+    box-shadow: 0 0 30px rgba(108, 255, 167, 0.6);
+    /* Glowing effect */
 }
-
-

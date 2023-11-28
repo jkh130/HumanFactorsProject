@@ -13,7 +13,8 @@ function Home() {
 
     return (
         <div className="page">
-            <h1 className="title">Restaurants</h1>
+            <h1 className="title">Fast Food, Faster Choices!</h1>
+            <h2 className="description">Discover the quickest bites near you in seconds.</h2>
             <Restaurants onRestaurantClick={handleRestaurantClick} />
         </div>
     );
