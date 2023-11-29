@@ -1,0 +1,40 @@
+[
+  {
+    "restaurant_id": "24",
+    "author": "Customer A",
+    "comment": "Great coffee and amazing donuts!",
+    "timestamp": "2023-09-21T14:48:00.000Z",
+    "rating": 5
+  },
+  {
+    "restaurant_id": "25",
+    "author": "Customer B",
+    "comment": "The sandwiches are very fresh and tasty.",
+    "timestamp": "2023-09-21T15:30:00.000Z",
+    "rating": 4
+  },
+  {
+    "restaurant_id": "10",
+    "author": "Anonymous",
+    "comment": "hey",
+    "timestamp": "2023-11-27T18:58:49.644Z"
+  },
+  {
+    "restaurant_id": "9",
+    "author": "Anonymous",
+    "comment": "the food is good today",
+    "timestamp": "2023-11-28T20:00:09.218Z"
+  },
+  {
+    "restaurant_id": "10",
+    "author": "User",
+    "comment": "there is a long line so prepare yourself for a 15 mins wait",
+    "timestamp": "2023-11-29T15:50:34.350Z"
+  },
+  {
+    "restaurant_id": "10",
+    "author": "User",
+    "comment": "the chicken in my sandwich",
+    "timestamp": "2023-11-29T16:08:19.063Z"
+  }
+]
