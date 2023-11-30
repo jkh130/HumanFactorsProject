@@ -34,7 +34,7 @@ function Restaurantinfo() {
         if (currentValue >= mean + stdDev) return 'Busier than usual';
         if (currentValue <= mean - 2 * stdDev) return 'Walk right in!';
         if (currentValue <= mean - stdDev) return 'Not very busy';
-        return 'Average busyness';
+        return 'Moderately busy';
     };
 
     const fetchComments = async (restaurantId) => {

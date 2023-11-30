@@ -54,5 +54,23 @@
     "author": "User",
     "comment": "Test chat",
     "timestamp": "2023-11-30T03:14:03.183Z"
+  },
+  {
+    "restaurant_id": "8",
+    "author": "User",
+    "comment": "I love this place the food is great",
+    "timestamp": "2023-11-30T03:46:44.126Z"
+  },
+  {
+    "restaurant_id": "8",
+    "author": "User",
+    "comment": "I could spend all day here!",
+    "timestamp": "2023-11-30T03:47:00.319Z"
+  },
+  {
+    "restaurant_id": "8",
+    "author": "User",
+    "comment": "Not a fan.",
+    "timestamp": "2023-11-30T03:47:10.284Z"
   }
 ]
