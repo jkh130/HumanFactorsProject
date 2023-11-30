@@ -8,7 +8,7 @@ import './css/Restinfo.css';
 
 function Restaurantinfo() {
     const [restaurant, setRestaurant] = useState(null);
-    const [comments, setComments] = useState([]);
+    const [comments, setComments] = useState({ recent: [], older: [] });
     const [newComment, setNewComment] = useState('');
     const [statusMessage, setStatusMessage] = useState('');
     const { restaurantName } = useParams();
@@ -77,13 +77,30 @@ function Restaurantinfo() {
                     if (!response.ok) throw new Error('Comments fetch response was not ok');
                     const fetchedComments = await response.json();
                     
-                    // Filter for today's comments, sort them by most recent, and slice the top 4
+                    // Filter for today's comments and sort them by most recent
                     const todayComments = fetchedComments
                         .filter(comment => new Date(comment.timestamp) >= todayStart)
-                        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-                        .slice(0, 4);
+                        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
-                    setComments(todayComments);
+                    // Determine the current time and 30 minutes ago
+                    const currentTime = Date.now();
+                    const thirtyMinutesAgo = currentTime - (30 * 60 * 1000);
+
+                    // Separate recent comments within the last 30 minutes
+                    const recentComments = todayComments.filter(comment =>
+                        new Date(comment.timestamp).getTime() >= thirtyMinutesAgo
+                    );
+
+                    // Keep other comments for the scrollable section
+                    const olderComments = todayComments.filter(comment =>
+                        new Date(comment.timestamp).getTime() < thirtyMinutesAgo
+                    );
+
+                    // Update the state with both recent and older comments
+                    setComments({
+                        recent: recentComments,
+                        older: olderComments
+                    });    
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -120,7 +137,6 @@ function Restaurantinfo() {
 
             if (!response.ok) throw new Error('Network response was not ok');
 
-            // If the comment was posted successfully, fetch the comments again to update the list
             // Fetch ONLY the comments for the current restaurant to update the list
             const commentsResponse = await fetch(`/api/comments/${restaurant.id}`);
             if (!commentsResponse.ok) throw new Error('Comments fetch response was not ok');
@@ -148,8 +164,9 @@ function Restaurantinfo() {
                 )}
                 <div className="comments-section">
                     <Typography variant="h5" gutterBottom>Live Updates</Typography>
+                    {/* Display the 4 most recent comments */}
                     <div className="comments-container">
-                        {comments.map((comment, index) => (
+                        {comments.recent.map((comment, index) => (
                             <Card key={index} className="comment-card">
                                 <CardContent>
                                     <span className="comment-author" variant="subtitle2">{comment.author}</span>
@@ -159,6 +176,19 @@ function Restaurantinfo() {
                             </Card>
                         ))}
                     </div >
+
+                    {/* Scrollable section for older comments */}
+                    <div className="older-comments-container">
+                        {comments.older.map((comment, index) => (
+                            <Card key={index} className="comment-card">
+                                <CardContent>
+                                    <span className="comment-author" variant="subtitle2">{comment.author}</span>
+                                    <Typography variant="body1">{comment.comment}</Typography>
+                                    <Typography variant="caption">{new Date(comment.timestamp).toLocaleString()}</Typography>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
 
                     <div className="comment-form">
                         <textarea

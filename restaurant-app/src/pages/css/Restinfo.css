@@ -64,6 +64,12 @@
   margin-bottom: 20px;
 }
 
+.older-comments-container {
+  max-height: 400px; /* Adjust based on your design */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-bottom: 20px;
+}
+
 .comment-author {
     background-color: #1976d2; /* Same color as your submit button */
     color: white;

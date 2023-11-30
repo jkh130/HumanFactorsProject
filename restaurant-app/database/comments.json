@@ -36,5 +36,17 @@
     "author": "User",
     "comment": "the chicken in my sandwich",
     "timestamp": "2023-11-29T16:08:19.063Z"
+  },
+  {
+    "restaurant_id": "10",
+    "author": "User",
+    "comment": "the ice cream machine is broken",
+    "timestamp": "2023-11-30T03:49:13.924Z"
+  },
+  {
+    "restaurant_id": "10",
+    "author": "User",
+    "comment": "the lines is really short this morning",
+    "timestamp": "2023-11-30T06:58:54.481Z"
   }
 ]
