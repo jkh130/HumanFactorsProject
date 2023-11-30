@@ -1,6 +1,10 @@
 .page2 {
     font-family: sans-serif;
     padding-top: 50px;
+    background-color: #94e2b2; /* Light grey background */
+   
+    background-size: 30%; /* Adjust the percentage to make the image smaller */
+    
 }
 
 .title {
