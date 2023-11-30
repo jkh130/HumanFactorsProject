@@ -12,6 +12,8 @@
   font-style: normal;
 }
 
+
+
 body {
   overflow-x: hidden;
   /* Prevents horizontal scrolling */
@@ -49,7 +51,6 @@ body {
   font-family: 'foodFont';
   font-size: 50px;
   text-align: center;
-  padding-top: 50px;
 }
 
 .description {

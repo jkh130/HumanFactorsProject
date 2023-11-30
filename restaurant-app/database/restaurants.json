@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "popularity": 5,
+    "popularity": 8,
     "name": "Whataburger",
     "type": "drive_thru",
     "popularity_multiplier": 0,
@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "popularity": 3.9,
+    "popularity": 4.9,
     "name": "McDonalds",
     "type": "drive_thru",
     "popularity_multiplier": 0,
@@ -100,7 +100,7 @@
   },
   {
     "id": 12,
-    "popularity": 0,
+    "popularity": 2,
     "name": "Pizza Hut Express @ LBJ Stedent Center",
     "type": "in_person",
     "popularity_multiplier": 0,
@@ -217,7 +217,7 @@
   },
   {
     "id": 25,
-    "popularity": 0,
+    "popularity": 1,
     "name": "Create Premium Deli @ Jones Dining Center",
     "type": "in_person",
     "popularity_multiplier": 0,
