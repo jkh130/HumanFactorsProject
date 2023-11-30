@@ -14,7 +14,6 @@ function Restaurantinfo() {
     const { restaurantName } = useParams();
     let navigate = useNavigate();
 
-    // useMemo to calculate the start of the day only once or when the date changes
     const todayStart = useMemo(() => {
         const start = new Date();
         start.setHours(0, 0, 0, 0);
@@ -38,15 +37,28 @@ function Restaurantinfo() {
         return 'Average busyness';
     };
 
+    const fetchComments = async (restaurantId) => {
+        try {
+            const response = await fetch(`/api/comments/${restaurantId}`);
+            if (!response.ok) throw new Error('Comments fetch response was not ok');
+            const fetchedComments = await response.json();
+            const todayComments = fetchedComments
+                .filter(comment => new Date(comment.timestamp) >= todayStart)
+                .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+                .slice(0, 4);
+            setComments(todayComments);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Fetch restaurants data
                 let response = await fetch('/api/restaurants');
                 if (!response.ok) throw new Error('Network response was not ok');
                 const restaurants = await response.json();
 
-                // Find the specific restaurant
                 const foundRestaurant = restaurants.find(
                     (r) => decodeURIComponent(restaurantName).toLowerCase() === r.name.toLowerCase()
                 );
@@ -54,15 +66,13 @@ function Restaurantinfo() {
                 if (foundRestaurant) {
                     setRestaurant(foundRestaurant);
 
-                    // Fetch model data for the found restaurant
                     response = await fetch('/api/models');
                     if (!response.ok) throw new Error('Models fetch response was not ok');
                     const models = await response.json();
                     const currentHour = new Date().getHours();
-                    const modelType = foundRestaurant.type + "_model"; // This becomes "hybrid_model"
+                    const modelType = foundRestaurant.type + "_model";
                     const modelInfo = models.find((m) => m.hasOwnProperty(modelType));
 
-                    // Calculate status message if model info is available
                     if (modelInfo) {
                         const modelData = modelInfo[modelType];
                         const mean = modelInfo['day_mean'];
@@ -72,18 +82,7 @@ function Restaurantinfo() {
                         setStatusMessage(status);
                     }
 
-                    // Fetch comments for the found restaurant
-                    response = await fetch(`/api/comments/${foundRestaurant.id}`);
-                    if (!response.ok) throw new Error('Comments fetch response was not ok');
-                    const fetchedComments = await response.json();
-                    
-                    // Filter for today's comments, sort them by most recent, and slice the top 4
-                    const todayComments = fetchedComments
-                        .filter(comment => new Date(comment.timestamp) >= todayStart)
-                        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-                        .slice(0, 4);
-
-                    setComments(todayComments);
+                    fetchComments(foundRestaurant.id);
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -94,19 +93,25 @@ function Restaurantinfo() {
         fetchData();
     }, [restaurantName, navigate, todayStart]);
 
+    useEffect(() => {
+        if (restaurant) {
+            const intervalId = setInterval(() => {
+                fetchComments(restaurant.id);
+            }, 15000);
 
-    // Function to handle comment submission
+            return () => clearInterval(intervalId);
+        }
+    }, [restaurant, todayStart]);
+
     const handleCommentSubmit = async () => {
-        // Check if the newComment is not just whitespace
         if (!newComment.trim()) {
             return;
         }
         const commentData = {
             restaurant_id: restaurant.id,
-            author: 'User', // Replace with actual user data if you have authentication
+            author: 'User',
             comment: newComment,
             timestamp: new Date().toISOString(),
-            // Include other fields like 'rating' if needed
         };
 
         try {
@@ -120,21 +125,27 @@ function Restaurantinfo() {
 
             if (!response.ok) throw new Error('Network response was not ok');
 
-            // If the comment was posted successfully, fetch the comments again to update the list
-            // Fetch ONLY the comments for the current restaurant to update the list
             const commentsResponse = await fetch(`/api/comments/${restaurant.id}`);
             if (!commentsResponse.ok) throw new Error('Comments fetch response was not ok');
             const updatedComments = await commentsResponse.json();
             setComments(updatedComments);
-            setNewComment(''); // Clear the input field after submission
+            setNewComment('');
         } catch (error) {
             console.error('Error:', error);
-            // Handle the error state appropriately
         }
     };
 
-    const handleButtonClick = () => {
-        // Implementation for button click
+    const handleButtonClick = async () => {
+        try {
+            const response = await fetch(`/api/increment-popularity/${restaurant.id}`, {
+                method: 'POST',
+            });
+            if (!response.ok) throw new Error('Network response was not ok');
+            const updatedRestaurant = await response.json();
+            setRestaurant(updatedRestaurant);
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
 
     return (
@@ -146,6 +157,16 @@ function Restaurantinfo() {
                         <p>{statusMessage}</p>
                     </div>
                 )}
+                <div className="button-container">
+                    <Button
+                        variant="contained"
+                        style={{ backgroundColor: 'rgb(60, 176, 95)' }}
+                        onClick={handleButtonClick}
+                        disabled={!restaurant}
+                    >
+                        Here currently? Click me!
+                    </Button>
+                </div>
                 <div className="comments-section">
                     <Typography variant="h5" gutterBottom>Live Updates</Typography>
                     <div className="comments-container">
@@ -171,17 +192,6 @@ function Restaurantinfo() {
                             Submit Comment
                         </Button>
                     </div>
-                </div>
-
-                <div className="button-container">
-                    <Button
-                        variant="contained"
-                        style={{ backgroundColor: 'rgb(60, 176, 95)' }}
-                        onClick={handleButtonClick}
-                        disabled={!restaurant}
-                    >
-                        Here currently? Click me!
-                    </Button>
                 </div>
             </div>
         </div>

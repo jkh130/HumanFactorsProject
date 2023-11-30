@@ -14,6 +14,35 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use('/api/restaurants', express.static(path.join(DATABASE_PATH, 'restaurants.json')));
 app.use('/api/models', express.static(path.join(DATABASE_PATH, 'models.json')));
 
+
+
+
+
+
+
+app.post('/api/increment-popularity/:restaurantId', async (req, res) => {
+  const restaurantId = req.params.restaurantId;
+  const filePath = path.join(DATABASE_PATH, 'restaurants.json');
+
+  try {
+    const data = await fs.promises.readFile(filePath, 'utf8');
+    let restaurants = JSON.parse(data);
+    const restaurantIndex = restaurants.findIndex(r => r.id === parseInt(restaurantId));
+
+    if (restaurantIndex === -1) {
+      res.status(404).send('Restaurant not found');
+      return;
+    }
+
+    restaurants[restaurantIndex].popularity += 1;
+    await fs.promises.writeFile(filePath, JSON.stringify(restaurants, null, 2));
+    res.json(restaurants[restaurantIndex]); // Send back the updated restaurant data
+  } catch (err) {
+    console.error('Error:', err);
+    res.status(500).send('Server error');
+  }
+});
+
 // Endpoint to get information about a specific restaurant
 app.get('/api/info/:restaurantName', (req, res) => {
   const restaurantName = req.params.restaurantName;
@@ -53,6 +82,8 @@ app.post('/api/comments/:restaurantId', async (req, res) => {
     }
   }
 });
+
+
 
 
 // New endpoint to get comments for a specific restaurant

@@ -36,5 +36,23 @@
     "author": "User",
     "comment": "the chicken in my sandwich",
     "timestamp": "2023-11-29T16:08:19.063Z"
+  },
+  {
+    "restaurant_id": "1",
+    "author": "User",
+    "comment": "Test",
+    "timestamp": "2023-11-30T03:09:23.290Z"
+  },
+  {
+    "restaurant_id": "2",
+    "author": "User",
+    "comment": "Test",
+    "timestamp": "2023-11-30T03:10:15.186Z"
+  },
+  {
+    "restaurant_id": "2",
+    "author": "User",
+    "comment": "Test chat",
+    "timestamp": "2023-11-30T03:14:03.183Z"
   }
 ]
