@@ -38,15 +38,39 @@
     "timestamp": "2023-11-29T16:08:19.063Z"
   },
   {
-    "restaurant_id": "10",
+    "restaurant_id": "1",
     "author": "User",
-    "comment": "the ice cream machine is broken",
-    "timestamp": "2023-11-30T03:49:13.924Z"
+    "comment": "Test",
+    "timestamp": "2023-11-30T03:09:23.290Z"
   },
   {
-    "restaurant_id": "10",
+    "restaurant_id": "2",
     "author": "User",
-    "comment": "the lines is really short this morning",
-    "timestamp": "2023-11-30T06:58:54.481Z"
+    "comment": "Test",
+    "timestamp": "2023-11-30T03:10:15.186Z"
+  },
+  {
+    "restaurant_id": "2",
+    "author": "User",
+    "comment": "Test chat",
+    "timestamp": "2023-11-30T03:14:03.183Z"
+  },
+  {
+    "restaurant_id": "8",
+    "author": "User",
+    "comment": "I love this place the food is great",
+    "timestamp": "2023-11-30T03:46:44.126Z"
+  },
+  {
+    "restaurant_id": "8",
+    "author": "User",
+    "comment": "I could spend all day here!",
+    "timestamp": "2023-11-30T03:47:00.319Z"
+  },
+  {
+    "restaurant_id": "8",
+    "author": "User",
+    "comment": "Not a fan.",
+    "timestamp": "2023-11-30T03:47:10.284Z"
   }
 ]

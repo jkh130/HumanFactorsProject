@@ -1,254 +1,254 @@
 [
-    {
-        "id": 1,
-        "popularity": 11,
-        "name": "Whataburger",
-        "type": "drive_thru",
-        "popularity_multiplier": 0,
-        "image": "https://s7d2.scene7.com/is/image/TWCNews/0710_whataburgerjpg",
-        "description": "Whataburger is an American regional fast food restaurant chain, headquartered and based in San Antonio, Texas, that specializes in hamburgers."
-    },
-    {
-        "id": 2,
-        "popularity": 0.9,
-        "name": "McDonalds",
-        "type": "drive_thru",
-        "popularity_multiplier": 0,
-        "image": "https://i.abcnewsfe.com/a/aae2e440-73a2-4252-a4c9-c7d27f0efda7/mcdonalds-gty-thg-230728_1690559943139_hpMain.jpg",
-        "description": "McDonald's Corporation is an American multinational fast food chain, founded in 1940 as a restaurant operated by Richard and Maurice McDonald, in San Bernardino, California, United States."
-    },
-    {
-        "id": 3,
-        "popularity": 0.9,
-        "name": "Chipotle",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_404,q_75,w_613/v1/crm/sanmarcostx/Chipotle1_B0F8BE45-5056-A36F-233B97649D3644D9-b0f8bc495056a36_b0f8be9b-5056-a36f-23faaa00ef1c1062.jpg",
-        "description": "Chipotle, is an American chain of fast casual restaurants specializing in bowls, tacos and Mission burritos made to order in front of the customer."
-    },
-    {
-        "id": 4,
-        "popularity": 0.7,
-        "name": "Taco Bell",
-        "type": "hybrid",
-        "popularity_multiplier": 0,
-        "image": "https://locations.tacobell.com/permanent-b0b701/assets/images/hero.9266f3de.jpg",
-        "description": "Taco Bell IP Holder, LLC, d/b/a Taco Bell, is an American multinational chain of fast food restaurants founded in 1962 by Glen Bell in Downey, California."
-    },
-    {
-        "id": 5,
-        "popularity": 0.5,
-        "name": "Jack in the Box",
-        "type": "hybrid",
-        "popularity_multiplier": 0,
-        "image": "https://www.abc4.com/wp-content/uploads/sites/4/2023/09/M24_003P_1_Angry_Monster_Tacos_1.png?w=2560&h=1440&crop=1",
-        "description": "Jack in the Box is an American fast-food restaurant chain founded February 21, 1951, by Robert O."
-    },
-    {
-        "id": 6,
-        "popularity": 0,
-        "name": "Saltgrass Steak House",
-        "type": "default",
-        "popularity_multiplier": 0,
-        "image": "https://lh3.googleusercontent.com/p/AF1QipOMhFb67m04sGjSp6CfXmbIfYbWAA-VcPNRTT6P=s1360-w1360-h1020",
-        "description": "Informal Texas-themed chain offers a meaty menu & full bar amid cattle kitsch decor."
-    },
-    {
-        "id": 7,
-        "popularity": 0,
-        "name": "Grins Restaurant",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://lh3.googleusercontent.com/p/AF1QipMRFlzzVrkog0Yw6BPvJGbf2pFl2F2QVPnHd_Dk=s1360-w1360-h1020",
-        "description": "Laid-back venue with a tree-shaded deck serving drinks & American eats to a mostly college crowd."
-    },
-    {
-        "id": 8,
-        "popularity": 0,
-        "name": "Chuy's",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://lh3.googleusercontent.com/p/AF1QipOqKEHNF9Bn5-yCs1umZojHSiZ3WNq8bEE2JxDm=s1360-w1360-h1020",
-        "description": "Chain serving \"big as yo' face\" burritos & other Tex-Mex dishes in kitschy, Elvis-heavy settings."
-    },
-    {
-        "id": 9,
-        "popularity": 0,
-        "name": "Hawaii Poke",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://lh3.googleusercontent.com/p/AF1QipN_yU-IRDy4Ia0QIV_2YGcffM6R6v4mipVSAw--=s1360-w1360-h1020",
-        "description": "Seafood"
-    },
-    {
-        "id": 10,
-        "popularity": 0,
-        "name": "Chick-fil-A @ LBJ Student Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://static.cfacdn.com/photos/restaurants/80127/large.jpg",
-        "description": "The cow says eat more chicken! Visit Chick-fil-A for a fast food experience and for their yummy specialty the chicken sandwich!"
-    },
-    {
-        "id": 11,
-        "popularity": 0,
-        "name": "Burger 512 @ LBJ Student Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_150,q_80,fl_lossy,dpr_2.0,c_fill,f_auto,h_100/nfpgxowbt9nbz6hhdi5e",
-        "description": "Experience our signature burgers made fresh daily with our 100% All-Beef Premium Patties, indulge over our loaded fries layered with several mouth-watering toppings, and wash it all down with our hand-spun creamy milkshakes! We also offer Beyond Meat for vegetarians and vegans! "
-    },
-    {
-        "id": 12,
-        "popularity": 0,
-        "name": "Pizza Hut Express @ LBJ Stedent Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhhXF8xScZDu-zQObpR5zivsEaR1TzVKgE3d5UhtX753tDQji2PZTdxMYmSRk_gmBf1q4&usqp=CAU",
-        "description": "Pizza Hut offers a variety of personal pizzas, wings, breadsticks and pasta!"
-    },
-    {
-        "id": 13,
-        "popularity": 0,
-        "name": "LBJ Starbucks",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8esV5M9pWHsFWqDRpddR_phcbnsrJYE71KHsGXDW9pmyiIstF6IU7EM98p7x9OA_SbkQ&usqp=CAU",
-        "description": "Visit Starbucks to order from their magnificent menu which has a variety of espressos, hot and iced coffees as well as pastries! \n\n"
-    },
-    {
-        "id": 14,
-        "popularity": 0,
-        "name": "Tu Taco @ LBJ Student Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://www.tutacomexico.com/wp-content/uploads/sites/9/2021/06/Taco.jpg",
-        "description": "Tu Taco is an authentic Mexican concept on campus. Create your favorite tacos, burritos, quesadillas, and salad bowls! We also offer plenty of desserts such as pan dulce, tres leches, and churros. "
-    },
-    {
-        "id": 15,
-        "popularity": 0,
-        "name": "Mondo Subs @ LBJ Student Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://10619-2.s.cdn12.com/rests/original/506_503472262.jpg",
-        "description": "Mondo Subs offers high-quality unique gourmet sandwiches, flatbreads, signature sides, and distinctive, homemade spiced chips."
-    },
-    {
-        "id": 16,
-        "popularity": 0,
-        "name": "Revolution Noodle @ LBJ Student Center ",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://docs.gato.txst.edu/272827/w/1008/41TN4d9eXetJ/RevNoodle%20Pic_2.jpg",
-        "description": "We are fusing Asian traditional recipes with today's culinary trends. Revolution Noodle features various ramen bowls, protein rice bowls, poke bowls, and our famous ramen-dipped sandwiches. Flavors aredelivered with a nod of respect to theroots from which they are inspired.We are hef-created but designedfor bobcats!"
-    },
-    {
-        "id": 17,
-        "popularity": 0,
-        "name": "Global Evolution @ LBJ Student Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE4QdvXyNWECaVJ8qU9ZulAPJK7Zbr76p697J7bqLKX_0tIMZKKhYu2T50QBMPpPJgNEU&usqp=CAU",
-        "description": "Global Evolution offers a wide array of cuisines from around the world! There is something for everyone to enjoy with our revolving menu changing every week you can enjoy one regional cuisine to another!\n\n"
-    },
-    {
-        "id": 18,
-        "popularity": 0,
-        "name": "LBJ Marketplace",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://www.food-management.com/sites/food-management.com/files/styles/article_featured_retina/public/Mashgin-0199.jpg?itok=hkwXmtOa",
-        "description": "The LBJ Marketplace has a 12-unit food locker with individual temperature controls for mobile pick-up orders from Burger 512, Global Evolution, and Pizza Hut. The LBJ Marketplace also has snacks and beverages."
-    },
-    {
-        "id": 19,
-        "popularity": 0,
-        "name": "Alkek Starbucks",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://docs.gato.txst.edu/662206/w/2000/xh0OgRMagOkF/AI7A0659%201.jpg",
-        "description": "Visit Starbucks to order from their magnificent menu which has a variety of espressos, hot and iced coffees as well as pastries! "
-    },
-    {
-        "id": 20,
-        "popularity": 0,
-        "name": "Commons Dining Hall",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://lh5.googleusercontent.com/p/AF1QipOimxmz8PIsaI0ekdliofLdLq_gIWbgJSLzjHF0=s1024",
-        "description": "Features your favorite everyday concepts in an all-you-care-to-eat facility. Try a variety of different cuisines such as home-style, Tex-Mex, grill, pizza, pasta, breakfast pantry, deli and innovate! Commons also features a full soup and salad bar. All baked goods are made in Texas State\u2019s very own Bobcat Bakery! Our bobcats never get tired of eating at Commons Dining Hall because our menus rotate and change every single day!\n\n  "
-    },
-    {
-        "id": 21,
-        "popularity": 0,
-        "name": "Harris Dining Hall",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThOKqAnZF8tSAhmOV2sRy1ZqEhGvU5aOQpQXwwKWTeUQNpgS2F_xuCZs5gQEfGJGS2yiY&usqp=CAU",
-        "description": "An all-you-care-to-eat dining facility that offers a variety of different cuisines such as home-style, Tex-Mex, grill, pizza, pasta, soup and salad bar, breakfast pantry, and deli. Our bobcats never get tired of eating at Harris Dining Hall since our menus rotate and change every single day!\nOffers a variety of different Avoiding Gluten, Vegetarian, Vegan and Balanced items every day!"
-    },
-    {
-        "id": 22,
-        "popularity": 0,
-        "name": "Asado Latin Grill @ Jones Dining Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://i0.wp.com/texasstatemultimedia.com/wp-content/uploads/2022/12/Asado.jpg?resize=512%2C384&ssl=1",
-        "description": "Enjoy your perfect tacos or burrito bowl at Asado Latin Grill. Use Text 2 Solve to send feedback on your dining experience at Jones Dining Center."
-    },
-    {
-        "id": 23,
-        "popularity": 0,
-        "name": "Panda Express @ Jones Dining Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://i0.wp.com/texasstatemultimedia.com/wp-content/uploads/2019/11/P1020107.jpg?resize=333%2C249&ssl=1",
-        "description": "Visit our fast food restaurant for American Chinese Cuisine. Panda is famous for its orange chicken and chow mein! "
-    },
-    {
-        "id": 24,
-        "popularity": 0,
-        "name": "Dunkin' @ Jones Dining Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2mVpRVzB02d94FxI9JRJKrtEbVw4oCbXaqw&usqp=CAU",
-        "description": "Jones Dining Center now features Dunkin Donuts on the lower level of the building. Need a quick cup of coffee and snacks. Visit Dunkin Donut to get your donut fix! "
-    },
-    {
-        "id": 25,
-        "popularity": 0,
-        "name": "Create Premium Deli @ Jones Dining Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://i0.wp.com/texasstatemultimedia.com/wp-content/uploads/2022/12/Create.jpg?resize=512%2C384&ssl=1",
-        "description": "Enjoy creating a made-to-order sandwich or salad at Create. Here is a great place to get your greens.  Use Text 2 Solve to send feedback on your dining experience at Jones Dining Center."
-    },
-    {
-        "id": 26,
-        "popularity": 0,
-        "name": "Wing It @ Jones Dining Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5Wrmcw2Rq5JbA_u-nkrd1XOiuPzHoWKR9b9192YH8VJ5eG1VY2SgzJL_pvdFLvIx6nPA&usqp=CAU",
-        "description": "Enjoy a variety of campus favorites from Wing It, such as hand-tossed wings, chicken tenders, or other southern sides. "
-    },
-    {
-        "id": 27,
-        "popularity": 0,
-        "name": "Kawa Sushi @ Jones Dining Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://universitystar.com/wp-content/uploads/2020/04/a2a811c2be2b370274f01f151a675829-1200x900.jpg",
-        "description": "If you are feeling seafood, we have Kawa Sushi. You can grab a ready to go sushi or make to order! Use Text 2 Solve to send feedback on your dining experience at Jones Dining Center."
-    },
-    {
-        "id": 28,
-        "popularity": 0,
-        "name": "Shake Smart @ Student Rec Center",
-        "type": "in_person",
-        "popularity_multiplier": 0,
-        "image": "https://texasstatemultimedia.com/wp-content/uploads/2022/12/ShakeSmart.png",
-        "description": "This concept focuses on offering healthy, convenient options for our Texas State University community. With a wide variety of shakes, acai bowls, natural sandwiches, oatmeal, and wraps, there is bound to be something for everyone. Signature shakes focus on offering 30+ grams of protein, high-quality whey isolates, and real fruits and veggies. One of the most important aspects of Shake Smart is that it also offers options for guests who live a vegan, gluten-free, and lactose-free lifestyle."
-    }
+  {
+    "id": 1,
+    "popularity": 8,
+    "name": "Whataburger",
+    "type": "drive_thru",
+    "popularity_multiplier": 0,
+    "image": "https://s7d2.scene7.com/is/image/TWCNews/0710_whataburgerjpg",
+    "description": "Whataburger is an American regional fast food restaurant chain, headquartered and based in San Antonio, Texas, that specializes in hamburgers."
+  },
+  {
+    "id": 2,
+    "popularity": 4.9,
+    "name": "McDonalds",
+    "type": "drive_thru",
+    "popularity_multiplier": 0,
+    "image": "https://i.abcnewsfe.com/a/aae2e440-73a2-4252-a4c9-c7d27f0efda7/mcdonalds-gty-thg-230728_1690559943139_hpMain.jpg",
+    "description": "McDonald's Corporation is an American multinational fast food chain, founded in 1940 as a restaurant operated by Richard and Maurice McDonald, in San Bernardino, California, United States."
+  },
+  {
+    "id": 3,
+    "popularity": 5.9,
+    "name": "Chipotle",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_404,q_75,w_613/v1/crm/sanmarcostx/Chipotle1_B0F8BE45-5056-A36F-233B97649D3644D9-b0f8bc495056a36_b0f8be9b-5056-a36f-23faaa00ef1c1062.jpg",
+    "description": "Chipotle, is an American chain of fast casual restaurants specializing in bowls, tacos and Mission burritos made to order in front of the customer."
+  },
+  {
+    "id": 4,
+    "popularity": 10.7,
+    "name": "Taco Bell",
+    "type": "hybrid",
+    "popularity_multiplier": 0,
+    "image": "https://locations.tacobell.com/permanent-b0b701/assets/images/hero.9266f3de.jpg",
+    "description": "Taco Bell IP Holder, LLC, d/b/a Taco Bell, is an American multinational chain of fast food restaurants founded in 1962 by Glen Bell in Downey, California."
+  },
+  {
+    "id": 5,
+    "popularity": 5.5,
+    "name": "Jack in the Box",
+    "type": "hybrid",
+    "popularity_multiplier": 0,
+    "image": "https://www.abc4.com/wp-content/uploads/sites/4/2023/09/M24_003P_1_Angry_Monster_Tacos_1.png?w=2560&h=1440&crop=1",
+    "description": "Jack in the Box is an American fast-food restaurant chain founded February 21, 1951, by Robert O."
+  },
+  {
+    "id": 6,
+    "popularity": 6,
+    "name": "Saltgrass Steak House",
+    "type": "default",
+    "popularity_multiplier": 0,
+    "image": "https://lh3.googleusercontent.com/p/AF1QipOMhFb67m04sGjSp6CfXmbIfYbWAA-VcPNRTT6P=s1360-w1360-h1020",
+    "description": "Informal Texas-themed chain offers a meaty menu & full bar amid cattle kitsch decor."
+  },
+  {
+    "id": 7,
+    "popularity": 5,
+    "name": "Grins Restaurant",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://lh3.googleusercontent.com/p/AF1QipMRFlzzVrkog0Yw6BPvJGbf2pFl2F2QVPnHd_Dk=s1360-w1360-h1020",
+    "description": "Laid-back venue with a tree-shaded deck serving drinks & American eats to a mostly college crowd."
+  },
+  {
+    "id": 8,
+    "popularity": 1,
+    "name": "Chuy's",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://lh3.googleusercontent.com/p/AF1QipOqKEHNF9Bn5-yCs1umZojHSiZ3WNq8bEE2JxDm=s1360-w1360-h1020",
+    "description": "Chain serving \"big as yo' face\" burritos & other Tex-Mex dishes in kitschy, Elvis-heavy settings."
+  },
+  {
+    "id": 9,
+    "popularity": 3,
+    "name": "Hawaii Poke",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://lh3.googleusercontent.com/p/AF1QipN_yU-IRDy4Ia0QIV_2YGcffM6R6v4mipVSAw--=s1360-w1360-h1020",
+    "description": "Seafood"
+  },
+  {
+    "id": 10,
+    "popularity": 3,
+    "name": "Chick-fil-A @ LBJ Student Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://static.cfacdn.com/photos/restaurants/80127/large.jpg",
+    "description": "The cow says eat more chicken! Visit Chick-fil-A for a fast food experience and for their yummy specialty the chicken sandwich!"
+  },
+  {
+    "id": 11,
+    "popularity": 0,
+    "name": "Burger 512 @ LBJ Student Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_150,q_80,fl_lossy,dpr_2.0,c_fill,f_auto,h_100/nfpgxowbt9nbz6hhdi5e",
+    "description": "Experience our signature burgers made fresh daily with our 100% All-Beef Premium Patties, indulge over our loaded fries layered with several mouth-watering toppings, and wash it all down with our hand-spun creamy milkshakes! We also offer Beyond Meat for vegetarians and vegans! "
+  },
+  {
+    "id": 12,
+    "popularity": 2,
+    "name": "Pizza Hut Express @ LBJ Stedent Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhhXF8xScZDu-zQObpR5zivsEaR1TzVKgE3d5UhtX753tDQji2PZTdxMYmSRk_gmBf1q4&usqp=CAU",
+    "description": "Pizza Hut offers a variety of personal pizzas, wings, breadsticks and pasta!"
+  },
+  {
+    "id": 13,
+    "popularity": 6,
+    "name": "LBJ Starbucks",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8esV5M9pWHsFWqDRpddR_phcbnsrJYE71KHsGXDW9pmyiIstF6IU7EM98p7x9OA_SbkQ&usqp=CAU",
+    "description": "Visit Starbucks to order from their magnificent menu which has a variety of espressos, hot and iced coffees as well as pastries! \n\n"
+  },
+  {
+    "id": 14,
+    "popularity": 0,
+    "name": "Tu Taco @ LBJ Student Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://www.tutacomexico.com/wp-content/uploads/sites/9/2021/06/Taco.jpg",
+    "description": "Tu Taco is an authentic Mexican concept on campus. Create your favorite tacos, burritos, quesadillas, and salad bowls! We also offer plenty of desserts such as pan dulce, tres leches, and churros. "
+  },
+  {
+    "id": 15,
+    "popularity": 10,
+    "name": "Mondo Subs @ LBJ Student Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://10619-2.s.cdn12.com/rests/original/506_503472262.jpg",
+    "description": "Mondo Subs offers high-quality unique gourmet sandwiches, flatbreads, signature sides, and distinctive, homemade spiced chips."
+  },
+  {
+    "id": 16,
+    "popularity": 0,
+    "name": "Revolution Noodle @ LBJ Student Center ",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://docs.gato.txst.edu/272827/w/1008/41TN4d9eXetJ/RevNoodle%20Pic_2.jpg",
+    "description": "We are fusing Asian traditional recipes with today's culinary trends. Revolution Noodle features various ramen bowls, protein rice bowls, poke bowls, and our famous ramen-dipped sandwiches. Flavors aredelivered with a nod of respect to theroots from which they are inspired.We are hef-created but designedfor bobcats!"
+  },
+  {
+    "id": 17,
+    "popularity": 0,
+    "name": "Global Evolution @ LBJ Student Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE4QdvXyNWECaVJ8qU9ZulAPJK7Zbr76p697J7bqLKX_0tIMZKKhYu2T50QBMPpPJgNEU&usqp=CAU",
+    "description": "Global Evolution offers a wide array of cuisines from around the world! There is something for everyone to enjoy with our revolving menu changing every week you can enjoy one regional cuisine to another!\n\n"
+  },
+  {
+    "id": 18,
+    "popularity": 0,
+    "name": "LBJ Marketplace",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://www.food-management.com/sites/food-management.com/files/styles/article_featured_retina/public/Mashgin-0199.jpg?itok=hkwXmtOa",
+    "description": "The LBJ Marketplace has a 12-unit food locker with individual temperature controls for mobile pick-up orders from Burger 512, Global Evolution, and Pizza Hut. The LBJ Marketplace also has snacks and beverages."
+  },
+  {
+    "id": 19,
+    "popularity": 0,
+    "name": "Alkek Starbucks",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://docs.gato.txst.edu/662206/w/2000/xh0OgRMagOkF/AI7A0659%201.jpg",
+    "description": "Visit Starbucks to order from their magnificent menu which has a variety of espressos, hot and iced coffees as well as pastries! "
+  },
+  {
+    "id": 20,
+    "popularity": 7,
+    "name": "Commons Dining Hall",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://lh5.googleusercontent.com/p/AF1QipOimxmz8PIsaI0ekdliofLdLq_gIWbgJSLzjHF0=s1024",
+    "description": "Features your favorite everyday concepts in an all-you-care-to-eat facility. Try a variety of different cuisines such as home-style, Tex-Mex, grill, pizza, pasta, breakfast pantry, deli and innovate! Commons also features a full soup and salad bar. All baked goods are made in Texas State’s very own Bobcat Bakery! Our bobcats never get tired of eating at Commons Dining Hall because our menus rotate and change every single day!\n\n  "
+  },
+  {
+    "id": 21,
+    "popularity": 0,
+    "name": "Harris Dining Hall",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThOKqAnZF8tSAhmOV2sRy1ZqEhGvU5aOQpQXwwKWTeUQNpgS2F_xuCZs5gQEfGJGS2yiY&usqp=CAU",
+    "description": "An all-you-care-to-eat dining facility that offers a variety of different cuisines such as home-style, Tex-Mex, grill, pizza, pasta, soup and salad bar, breakfast pantry, and deli. Our bobcats never get tired of eating at Harris Dining Hall since our menus rotate and change every single day!\nOffers a variety of different Avoiding Gluten, Vegetarian, Vegan and Balanced items every day!"
+  },
+  {
+    "id": 22,
+    "popularity": 0,
+    "name": "Asado Latin Grill @ Jones Dining Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://i0.wp.com/texasstatemultimedia.com/wp-content/uploads/2022/12/Asado.jpg?resize=512%2C384&ssl=1",
+    "description": "Enjoy your perfect tacos or burrito bowl at Asado Latin Grill. Use Text 2 Solve to send feedback on your dining experience at Jones Dining Center."
+  },
+  {
+    "id": 23,
+    "popularity": 0,
+    "name": "Panda Express @ Jones Dining Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://i0.wp.com/texasstatemultimedia.com/wp-content/uploads/2019/11/P1020107.jpg?resize=333%2C249&ssl=1",
+    "description": "Visit our fast food restaurant for American Chinese Cuisine. Panda is famous for its orange chicken and chow mein! "
+  },
+  {
+    "id": 24,
+    "popularity": 0,
+    "name": "Dunkin' @ Jones Dining Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2mVpRVzB02d94FxI9JRJKrtEbVw4oCbXaqw&usqp=CAU",
+    "description": "Jones Dining Center now features Dunkin Donuts on the lower level of the building. Need a quick cup of coffee and snacks. Visit Dunkin Donut to get your donut fix! "
+  },
+  {
+    "id": 25,
+    "popularity": 1,
+    "name": "Create Premium Deli @ Jones Dining Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://i0.wp.com/texasstatemultimedia.com/wp-content/uploads/2022/12/Create.jpg?resize=512%2C384&ssl=1",
+    "description": "Enjoy creating a made-to-order sandwich or salad at Create. Here is a great place to get your greens.  Use Text 2 Solve to send feedback on your dining experience at Jones Dining Center."
+  },
+  {
+    "id": 26,
+    "popularity": 0,
+    "name": "Wing It @ Jones Dining Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5Wrmcw2Rq5JbA_u-nkrd1XOiuPzHoWKR9b9192YH8VJ5eG1VY2SgzJL_pvdFLvIx6nPA&usqp=CAU",
+    "description": "Enjoy a variety of campus favorites from Wing It, such as hand-tossed wings, chicken tenders, or other southern sides. "
+  },
+  {
+    "id": 27,
+    "popularity": 0,
+    "name": "Kawa Sushi @ Jones Dining Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://universitystar.com/wp-content/uploads/2020/04/a2a811c2be2b370274f01f151a675829-1200x900.jpg",
+    "description": "If you are feeling seafood, we have Kawa Sushi. You can grab a ready to go sushi or make to order! Use Text 2 Solve to send feedback on your dining experience at Jones Dining Center."
+  },
+  {
+    "id": 28,
+    "popularity": 0,
+    "name": "Shake Smart @ Student Rec Center",
+    "type": "in_person",
+    "popularity_multiplier": 0,
+    "image": "https://texasstatemultimedia.com/wp-content/uploads/2022/12/ShakeSmart.png",
+    "description": "This concept focuses on offering healthy, convenient options for our Texas State University community. With a wide variety of shakes, acai bowls, natural sandwiches, oatmeal, and wraps, there is bound to be something for everyone. Signature shakes focus on offering 30+ grams of protein, high-quality whey isolates, and real fruits and veggies. One of the most important aspects of Shake Smart is that it also offers options for guests who live a vegan, gluten-free, and lactose-free lifestyle."
+  }
 ]
