@@ -198,9 +198,9 @@ function Restaurantinfo() {
                 </div>
                 <div className="comments-section">
                     <Typography variant="h5" gutterBottom>Live Updates</Typography>
-                    {/* Display the 4 most recent comments */}
-                    <div className="comments-container">
-                        {comments.recent.map((comment, index) => (
+                    {comments.recent && (
+                        <div className="comments-container">
+                            {comments.recent.map((comment, index) => (
                             <Card key={index} className="comment-card">
                                 <CardContent>
                                     <span className="comment-author" variant="subtitle2">{comment.author}</span>
@@ -208,12 +208,13 @@ function Restaurantinfo() {
                                     <Typography variant="caption">{new Date(comment.timestamp).toLocaleString()}</Typography>
                                 </CardContent>
                             </Card>
-                        ))}
-                    </div >
+                            ))}
+                        </div >
+                    )}
 
-                    {/* Scrollable section for older comments */}
-                    <div className="older-comments-container">
-                        {comments.older.map((comment, index) => (
+                    {comments.older && (
+                        <div className="older-comments-container">
+                            {comments.older.map((comment, index) => (
                             <Card key={index} className="comment-card">
                                 <CardContent>
                                     <span className="comment-author" variant="subtitle2">{comment.author}</span>
@@ -221,8 +222,9 @@ function Restaurantinfo() {
                                     <Typography variant="caption">{new Date(comment.timestamp).toLocaleString()}</Typography>
                                 </CardContent>
                             </Card>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
 
                     <div className="comment-form">
                         <textarea
