@@ -72,5 +72,35 @@
     "author": "User",
     "comment": "Not a fan.",
     "timestamp": "2023-11-30T03:47:10.284Z"
+  },
+  {
+    "restaurant_id": "10",
+    "author": "User",
+    "comment": "Just grabbed a Spicy Deluxe, and it's as good as ever! Service was super quick even with the lunch rush. 😋🌶️ #ChickfilAfortheWin",
+    "timestamp": "2023-11-30T15:54:36.771Z"
+  },
+  {
+    "restaurant_id": "10",
+    "author": "User",
+    "comment": "The new lemon kale Caesar salad is surprisingly tasty! And those waffle fries are a must. 🥗🍟 #HealthyAndHappy",
+    "timestamp": "2023-11-30T15:56:30.425Z"
+  },
+  {
+    "restaurant_id": "10",
+    "author": "User",
+    "comment": "They ran out of chicken nuggets so rip to anyone that wants some in the next 30 mins.",
+    "timestamp": "2023-11-30T15:57:55.768Z"
+  },
+  {
+    "restaurant_id": "10",
+    "author": "User",
+    "comment": "bcnjb",
+    "timestamp": "2023-12-01T21:26:40.909Z"
+  },
+  {
+    "restaurant_id": "10",
+    "author": "User",
+    "comment": "testing 123",
+    "timestamp": "2023-12-01T21:33:11.322Z"
   }
 ]

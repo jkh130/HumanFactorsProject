@@ -14,12 +14,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use('/api/restaurants', express.static(path.join(DATABASE_PATH, 'restaurants.json')));
 app.use('/api/models', express.static(path.join(DATABASE_PATH, 'models.json')));
 
-
-
-
-
-
-
 app.post('/api/increment-popularity/:restaurantId', async (req, res) => {
   const restaurantId = req.params.restaurantId;
   const filePath = path.join(DATABASE_PATH, 'restaurants.json');
@@ -83,34 +77,49 @@ app.post('/api/comments/:restaurantId', async (req, res) => {
   }
 });
 
-
-
-
 // New endpoint to get comments for a specific restaurant
-app.get('/api/comments/:restaurantId', (req, res) => {
+app.get('/api/comments/:restaurantId', async (req, res) => {
   const restaurantId = req.params.restaurantId;
   const filePath = path.join(DATABASE_PATH, 'comments.json');
+  const todayStart = new Date();
+  todayStart.setHours(0, 0, 0, 0);
 
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err && err.code === 'ENOENT') {
-      // If the file doesn't exist, send back an empty array
-      res.json([]);
-    } else if (err) {
-      res.status(500).send('Server error');
+  try {
+    const data = await fs.promises.readFile(filePath, 'utf8');
+    let comments = JSON.parse(data);
+    const restaurantComments = comments
+      .filter(comment =>
+        comment.restaurant_id === restaurantId &&
+        new Date(comment.timestamp) >= todayStart
+      );
+    res.json(restaurantComments);
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      res.json([]); // If the file doesn't exist, send back an empty array
     } else {
-      let comments = [];
-      try {
-        comments = JSON.parse(data);
-      } catch (parseErr) {
-        console.error('Error parsing JSON:', parseErr);
-        res.status(500).send('Error parsing comments data');
-        return;
-      }
-      const restaurantComments = comments.filter(comment => comment.restaurant_id === restaurantId);
-      res.json(restaurantComments);
+      console.error('Server error:', err);
+      res.status(500).send('Server error');
     }
-  });
+  }
 });
+
+
+// Delete comments from the previous days
+app.delete('/api/comments/cleanup', async (req, res) => {
+  const filePath = path.join(DATABASE_PATH, 'comments.json');
+  try {
+    const data = await fs.promises.readFile(filePath, 'utf8');
+    let comments = JSON.parse(data);
+    const todayStart = new Date();
+    todayStart.setHours(0, 0, 0, 0);
+    comments = comments.filter(comment => new Date(comment.timestamp) >= todayStart);
+    await fs.promises.writeFile(filePath, JSON.stringify(comments, null, 2));
+    res.status(200).send('Old comments deleted successfully');
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
+});
+
 
 // Catch-all handler for serving index.html must be declared after all other API routes
 app.get('*', (req, res) => {

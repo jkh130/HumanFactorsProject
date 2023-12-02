@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,7 +8,7 @@ import './css/Restinfo.css';
 
 function Restaurantinfo() {
     const [restaurant, setRestaurant] = useState(null);
-    const [comments, setComments] = useState([]);
+    const [comments, setComments] = useState({ recent: [], older: [] });
     const [newComment, setNewComment] = useState('');
     const [statusMessage, setStatusMessage] = useState('');
     const { restaurantName } = useParams();
@@ -37,7 +37,7 @@ function Restaurantinfo() {
         return 'Moderately busy';
     };
 
-    const fetchComments = async (restaurantId) => {
+    const fetchComments = useCallback(async (restaurantId) => {
         try {
             const response = await fetch(`/api/comments/${restaurantId}`);
             if (!response.ok) throw new Error('Comments fetch response was not ok');
@@ -50,7 +50,7 @@ function Restaurantinfo() {
         } catch (error) {
             console.error('Error:', error);
         }
-    };
+    }, [todayStart]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -82,7 +82,35 @@ function Restaurantinfo() {
                         setStatusMessage(status);
                     }
 
-                    fetchComments(foundRestaurant.id);
+                    // Fetch comments for the found restaurant
+                    response = await fetch(`/api/comments/${foundRestaurant.id}`);
+                    if (!response.ok) throw new Error('Comments fetch response was not ok');
+                    const fetchedComments = await response.json();
+                    
+                    // Filter for today's comments and sort them by most recent
+                    const todayComments = fetchedComments
+                        .filter(comment => new Date(comment.timestamp) >= todayStart)
+                        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+                    // Determine the current time and 30 minutes ago
+                    const currentTime = Date.now();
+                    const thirtyMinutesAgo = currentTime - (30 * 60 * 1000);
+
+                    // Separate recent comments within the last 30 minutes
+                    const recentComments = todayComments.filter(comment =>
+                        new Date(comment.timestamp).getTime() >= thirtyMinutesAgo
+                    );
+
+                    // Keep other comments for the scrollable section
+                    const olderComments = todayComments.filter(comment =>
+                        new Date(comment.timestamp).getTime() < thirtyMinutesAgo
+                    );
+
+                    // Update the state with both recent and older comments
+                    setComments({
+                        recent: recentComments,
+                        older: olderComments
+                    });    
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -101,7 +129,7 @@ function Restaurantinfo() {
 
             return () => clearInterval(intervalId);
         }
-    }, [restaurant, todayStart]);
+    }, [restaurant, fetchComments]);
 
     const handleCommentSubmit = async () => {
         if (!newComment.trim()) {
@@ -125,6 +153,7 @@ function Restaurantinfo() {
 
             if (!response.ok) throw new Error('Network response was not ok');
 
+            // Fetch ONLY the comments for the current restaurant to update the list
             const commentsResponse = await fetch(`/api/comments/${restaurant.id}`);
             if (!commentsResponse.ok) throw new Error('Comments fetch response was not ok');
             const updatedComments = await commentsResponse.json();
@@ -169,8 +198,9 @@ function Restaurantinfo() {
                 </div>
                 <div className="comments-section">
                     <Typography variant="h5" gutterBottom>Live Updates</Typography>
-                    <div className="comments-container">
-                        {comments.map((comment, index) => (
+                    {comments.recent && (
+                        <div className="comments-container">
+                            {comments.recent.map((comment, index) => (
                             <Card key={index} className="comment-card">
                                 <CardContent>
                                     <span className="comment-author" variant="subtitle2">{comment.author}</span>
@@ -178,8 +208,23 @@ function Restaurantinfo() {
                                     <Typography variant="caption">{new Date(comment.timestamp).toLocaleString()}</Typography>
                                 </CardContent>
                             </Card>
-                        ))}
-                    </div >
+                            ))}
+                        </div >
+                    )}
+
+                    {comments.older && (
+                        <div className="older-comments-container">
+                            {comments.older.map((comment, index) => (
+                            <Card key={index} className="comment-card">
+                                <CardContent>
+                                    <span className="comment-author" variant="subtitle2">{comment.author}</span>
+                                    <Typography variant="body1">{comment.comment}</Typography>
+                                    <Typography variant="caption">{new Date(comment.timestamp).toLocaleString()}</Typography>
+                                </CardContent>
+                            </Card>
+                            ))}
+                        </div>
+                    )}
 
                     <div className="comment-form">
                         <textarea
