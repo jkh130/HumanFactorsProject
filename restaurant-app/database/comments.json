@@ -102,5 +102,11 @@
     "author": "User",
     "comment": "testing 123",
     "timestamp": "2023-12-01T21:33:11.322Z"
+  },
+  {
+    "restaurant_id": "3",
+    "author": "User",
+    "comment": "test",
+    "timestamp": "2023-12-03T23:26:53.677Z"
   }
 ]
