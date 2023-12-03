@@ -1,18 +1,12 @@
 .page2 {
     font-family: sans-serif;
     padding-top: 50px;
-    background-color: #94e2b2; /* Light grey background */
-   
-    background-size: 30%; /* Adjust the percentage to make the image smaller */
-    
-    display: flex;
-    justify-content: center;
-}
+    background-color: #94e2b2;
+    /* Light grey background */
 
-.restaurant-info {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+    background-size: 30%;
+    /* Adjust the percentage to make the image smaller */
+
 }
 
 .title {
@@ -64,9 +58,11 @@
 }
 
 .comments-container {
-  max-height: 400px; /* Adjust based on your design */
-  overflow-y: auto; /* Enable vertical scrolling */
-  margin-bottom: 20px;
+    max-height: 400px;
+    /* Adjust based on your design */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    margin-bottom: 20px;
 }
 
 .older-comments-container {
