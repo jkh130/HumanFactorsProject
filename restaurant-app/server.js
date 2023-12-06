@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const schedule = require('node-schedule');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -120,6 +121,57 @@ app.delete('/api/comments/cleanup', async (req, res) => {
   }
 });
 
+// Endpoint to submit a rating for a specific restaurant
+app.post('/api/rating/:restaurantId', async (req, res) => {
+  const restaurantId = Number(req.params.restaurantId); // Convert restaurantId to a number
+  const { rating } = req.body;
+  const userIp = req.ip;
+  const filePath = path.join(DATABASE_PATH, 'Ratings.json');
+
+   // Validate restaurantId
+   const restaurantsFilePath = path.join(DATABASE_PATH, 'restaurants.json');
+   const restaurantsData = await fs.promises.readFile(restaurantsFilePath, 'utf8');
+   const restaurants = JSON.parse(restaurantsData);
+   if (!restaurants.some(r => r.id === restaurantId)) {
+     res.status(400).send('Invalid restaurantId');
+     return;
+   }
+
+  try {
+    const data = await fs.promises.readFile(filePath, 'utf8');
+    let ratings = JSON.parse(data);
+
+    const todayStart = new Date();
+    todayStart.setHours(0, 0, 0, 0);
+    const todayStartString = todayStart.toISOString().split('T')[0]; // Get the date part of the ISO string
+
+    // Check if the user has already rated this restaurant today
+    const userHasRatedToday = ratings.some(rating => {
+      const ratingDate = new Date(rating.timestamp).toISOString().split('T')[0]; // Get the date part of the rating timestamp
+      return rating.restaurantId === restaurantId && rating.ip === userIp && ratingDate === todayStartString;
+    });
+
+    if (userHasRatedToday) {
+      res.status(400).send('You have already rated this restaurant today');
+      return;
+    }
+
+    const ratingData = { restaurantId, ip: userIp, rating, timestamp: new Date().toISOString() };
+    ratings.push(ratingData);
+
+    // Filter ratings for the current restaurant
+    const restaurantRatings = ratings.filter(rating => rating.restaurantId === restaurantId);
+
+    // Calculate average rating for the current restaurant
+    const averageRating = restaurantRatings.reduce((sum, rating) => sum + rating.rating, 0) / restaurantRatings.length;
+
+    await fs.promises.writeFile(filePath, JSON.stringify(ratings, null, 2));
+    res.status(201).json({ averageRating, ratingData });
+  } catch (err) {
+    console.error('Error:', err);
+    res.status(500).send('Server error');
+  }
+});
 
 // Catch-all handler for serving index.html must be declared after all other API routes
 app.get('*', (req, res) => {
