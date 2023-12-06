@@ -1,0 +1,14 @@
+[
+  {
+    "restaurantId": 1,
+    "ip": "::1",
+    "rating": 2,
+    "timestamp": "2023-12-06T06:25:01.638Z"
+  },
+  {
+    "restaurantId": 2,
+    "ip": "::1",
+    "rating": 5,
+    "timestamp": "2023-12-06T06:34:47.041Z"
+  }
+]
