@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import StarRate from './StarRate';
 import './css/Restinfo.css';
 
 function Restaurantinfo() {
@@ -11,6 +12,7 @@ function Restaurantinfo() {
     const [comments, setComments] = useState({ recent: [], older: [] });
     const [newComment, setNewComment] = useState('');
     const [statusMessage, setStatusMessage] = useState('');
+    const [averageRating, setAverageRating] = useState([]);
     const { restaurantName } = useParams();
     let navigate = useNavigate();
 
@@ -177,10 +179,44 @@ function Restaurantinfo() {
         }
     };
 
+    const handleRatingSelect = async(rating) => {
+        const ratingData = {
+            restaurantId: Number(restaurant.id),
+            user_ip: 'User IP', // Replace with actual user IP
+            rating: rating, // Use the rating passed to this function
+            timestamp: new Date().toISOString(),
+        };
+
+        fetch(`/api/rating/${restaurant.id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(ratingData), // Send the ratingData object
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`'You have already rated this restaurant today' ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            setAverageRating(data.averageRating); // Use the pre-calculated average rating from the server
+            setRestaurant(data); // Update the restaurant state with the new data
+            setErrorMessage(null);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    };
+
     return (
         <div className="page2">
             <div className="restaurant-info">
                 <h2 className="title">{restaurant ? restaurant.name : 'Loading...'}</h2>
+                <h3>Grade the food  quality for the day</h3>
+                <StarRate onRatingSelect={(rating) => handleRatingSelect(rating)} restaurant={restaurant} />
+                <p>Average Rating: {averageRating} </p>
                 {statusMessage && (
                     <div className="availability">
                         <p>{statusMessage}</p>
