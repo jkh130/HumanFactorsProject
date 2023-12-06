@@ -14,10 +14,13 @@ cd restaurant-app
 
 Install Dependencies: Install the project's dependencies by running the following command:
 
-npm install
+1. npm install
+2. npm install node-schedule
 
 Running the Application
-Once you've completed the installation, you can start the Food App with the following command:
+Once you've completed the installation of both, you can start the Food App with the following command:
+
+if you dont install node-schedule this will cause an error and for the program to not work properly so it is important to install
 
 npm run dev
 
